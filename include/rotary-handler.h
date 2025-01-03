@@ -1,3 +1,6 @@
+#ifndef _ROTARY_HANDLER_H_
+#define _ROTARY_HANDLER_H_
+
 #define PCINT2_vect _VECTOR(5)
 
 Rotary r = Rotary(2, 3);               // Initialize Rotary opbject r (Type Rotary) a. assign pin 2 and pin 3 b. set Initial state c. set default inverter
@@ -14,3 +17,5 @@ void initRotary(){
 ISR(PCINT2_vect) {
         MyData::dataManager.setByRotary(r.process());
 }
+
+#endif
