@@ -1,68 +1,17 @@
-#include <avr/pgmspace.h>          // needed for to story large array's
-#include <Adafruit_GFX.h>          // Adafruit GFX graphics core library, this is the 'core' class that all our other graphics libraries derive from. https://github.com/adafruit/Adafruit-GFX-Library
-#include <Adafruit_SSD1306.h>      // SSD1306 oled driver library for monochrome 128x64 and 128x32 displays https://github.com/adafruit/Adafruit_SSD1306
-
-Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire); // Initialize Adafruit_SSD1306 object (Type Adafruit_SSD1306) width 128 pixels hight 64 pixels, using the Wire object(library) by reference
-
+#include "display-handler.h"
 
 namespace MyDisplay {
 
-    const char   display_step_0[] PROGMEM = "     ";
-    const char   display_step_1[] PROGMEM = "  1Hz";
-    const char   display_step_2[] PROGMEM = " 10Hz";
-    const char   display_step_3[] PROGMEM = " 1kHz";
-    const char   display_step_4[] PROGMEM = " 5kHz";
-    const char   display_step_5[] PROGMEM = "10kHz";
-    const char   display_step_6[] PROGMEM = " 1MHz";
-    const char * const  PROGMEM tuneStepsDisplay[] = {display_step_0,display_step_1,display_step_2,display_step_3,display_step_4,display_step_5,display_step_6};  // the displaysteps 
+            
 
-
-    const char   display_band_00[] PROGMEM = "     ";
-    const char   display_band_01[] PROGMEM = "GEN  ";
-    const char   display_band_02[] PROGMEM = "MW   ";
-    const char   display_band_03[] PROGMEM = "160m ";
-    const char   display_band_04[] PROGMEM = "80m  ";
-    const char   display_band_05[] PROGMEM = "60m  ";
-    const char   display_band_06[] PROGMEM = "49m  ";
-    const char   display_band_07[] PROGMEM = "40m  "; 
-    const char   display_band_08[] PROGMEM = "31m  ";
-    const char   display_band_09[] PROGMEM = "25m  ";
-    const char   display_band_10[] PROGMEM = "22m  ";    
-    const char   display_band_11[] PROGMEM = "20m  ";
-    const char   display_band_12[] PROGMEM = "19m  ";
-    const char   display_band_13[] PROGMEM = "16m  ";
-    const char   display_band_14[] PROGMEM = "13m  ";
-    const char   display_band_15[] PROGMEM = "11m  ";
-    const char   display_band_16[] PROGMEM = "10m  ";
-    const char   display_band_17[] PROGMEM = "6m   "; 
-    const char   display_band_18[] PROGMEM = "WFM  ";
-    const char   display_band_19[] PROGMEM = "AIR  ";
-    const char   display_band_20[] PROGMEM = "2m   ";    
-    const char   display_band_21[] PROGMEM = "1m   ";
-    const char * const  PROGMEM displayBand[] = {
-                                                display_band_00,display_band_01,display_band_02,display_band_03,display_band_04,
-                                                display_band_05,display_band_06,display_band_07,display_band_08,display_band_09,
-                                                display_band_10,display_band_11,display_band_12,display_band_13,display_band_14,
-                                                display_band_15,display_band_16,display_band_17,display_band_18,display_band_19,
-                                                display_band_20,display_band_21
-                                                };
-
-
-    class Display {
-
-        private:
-
-            unsigned long timeNow = 0;          // The current time
-            unsigned int period = 100;          // Used for calculation the performance time .
-            char  bandSelectorTypeDisplay[6];   // The band name for the Display. ex: GEN, MW, 160m 80m etc. 
-            char  tuneStepDisplay[7];           // The frequency step ex: " 1MHz", "  1Hz", " 10Hz", " 1kHz" ," 5kHz" , "10kHz"
-    
-        public:
-                
             /***************************************************************************************/
             /*! @brief  Initial setup op the display                                               */
             /***************************************************************************************/
-            void init() {
+            void Screen::init() {
+
+                Screen::timeNow = 0;          // The current time
+                Screen::period = 100;          // Used for calculation the performance time .
+                
                 Wire.begin();
                 display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
                 display.clearDisplay();
@@ -73,14 +22,14 @@ namespace MyDisplay {
             /***************************************************************************************/
             /*! @brief  Initial timesetup                                                          */
             /***************************************************************************************/
-            void setTimeNow() {
+            void Screen::setTimeNow() {
                 timeNow = millis();
             }
             
             /***************************************************************************************/
             /*! @brief  Start text to screen to display                                            */
             /***************************************************************************************/
-            void setStartupText() {
+            void Screen::setStartupText() {
                 display.setTextSize(1);
                 display.setCursor(13, 18);
                 display.print("Si5351 VFO/RF GEN");
@@ -103,7 +52,7 @@ namespace MyDisplay {
                 @param  signalMeterRemap       The signal meter remap 
             */
             /***************************************************************************************/
-            void setScreen(
+            void Screen::setScreen(
                             byte tuneStepValue, 
                             int interFrequency, 
                             unsigned long frequency,
@@ -131,13 +80,13 @@ namespace MyDisplay {
                     display.print("k");
                     
                     display.setCursor(110, 23);
-                    display.print(setFrequencyDisplay(frequency));
+                    display.print(setFrequencyScreen(frequency));
 
                     display.setCursor(110, 33);
-                    display.print(setInterFrequentieDisplay(interFrequency));
+                    display.print(setInterFrequentieScreen(interFrequency));
 
                     display.setCursor(91, 28);
-                    display.print(setRxTxDisplay(rxtxSwitch));
+                    display.print(setRxTxScreen(rxtxSwitch));
                     
                     display.setTextSize(2);
                     display.setCursor(0, 25);
@@ -150,12 +99,10 @@ namespace MyDisplay {
             }
             
 
-        private:
-
             /***************************************************************************************/
             /*! @brief  setup the static Screen elements                                          */
             /***************************************************************************************/
-            void setScreenStatic() {
+            void Screen::setScreenStatic() {
                 display.setTextColor(WHITE);    
                 display.setTextSize(1);
 
@@ -186,7 +133,7 @@ namespace MyDisplay {
                 @return kHz or MHz 
             */
             /***************************************************************************************/
-            char* setFrequencyDisplay(int freq) {
+            char* Screen::setFrequencyScreen(int freq) {
                 char* returnDisplay =(char*)"  ";
                 if (freq < 1000000) { 
                 returnDisplay = (char*)"kHz";
@@ -202,7 +149,7 @@ namespace MyDisplay {
                 @return VFO or L O 
             */
             /***************************************************************************************/
-            char* setInterFrequentieDisplay(int freq) {
+            char* Screen::setInterFrequentieScreen(int freq) {
                 char* returnDisplay =(char*)"  ";
                 if (freq == 0) { 
                     returnDisplay =(char*)"VFO";
@@ -218,7 +165,7 @@ namespace MyDisplay {
                 @return TX or RX 
             */
             /***************************************************************************************/
-            char* setRxTxDisplay(bool rxtxSwitch) {
+            char* Screen::setRxTxScreen(bool rxtxSwitch) {
                 char* returnDisplay =(char*)"   "; 
                 if (rxtxSwitch == true){
                     returnDisplay = (char*)"TX";
@@ -234,7 +181,7 @@ namespace MyDisplay {
                 @param singalMeterRemap  The recalculated tune pointer
             */
             /***************************************************************************************/
-            void setBargraph(byte tunePointer, byte signalMeterRemap) {
+            void Screen::setBargraph(byte tunePointer, byte signalMeterRemap) {
                 byte y = map(tunePointer, 1, 42, 1, 14);
                 display.setTextSize(1);
                 display.fillRect(10 + (5 * y), 48, 2, 6, WHITE);
@@ -249,7 +196,7 @@ namespace MyDisplay {
                 @param  frequency        The current frequency 
             */
             /***************************************************************************************/
-            void setFormattedFrequency(unsigned long frequency) {
+            void Screen::setFormattedFrequency(unsigned long frequency) {
                 unsigned int m = frequency / 1000000;
                 unsigned int k = (frequency % 1000000) / 1000;
                 unsigned int h = (frequency % 1000) / 1;
@@ -270,8 +217,6 @@ namespace MyDisplay {
                 }
                 display.print(buffer);
             }
-    };
-
-    Display displayManager;
-
-}
+     
+    Screen displayManager ;
+}    

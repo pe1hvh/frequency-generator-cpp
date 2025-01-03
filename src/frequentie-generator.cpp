@@ -33,10 +33,10 @@
 */
 /******************************************************************************/
 void setup() {
-
+  
   MyDisplay::displayManager.init();
   MyDisplay::displayManager.setStartupText(); //If you hang on startup, comment
-  
+  MyData::dataManager.init();
   initRotary();
   initButtonRxTx();
   initButtonTuneStep();
@@ -52,7 +52,7 @@ void setup() {
 void loop() {
   
   MyDisplay::displayManager.setTimeNow(); 
-  
+ 
   readSignalMeterADC();
   checkButtonRxTx();
   checkButtonTuneStep();
