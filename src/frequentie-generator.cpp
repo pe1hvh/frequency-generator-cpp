@@ -4,17 +4,17 @@
   and Bargraph S-Meter.  Based on source made by J. CesarSound - ver 2.0 - Feb/2021.
   
   Forked by JA van Hernen
+
+  Version 3.0 december 2024
+   - complete new redesign in OO (where posible)
    - re-code: standard lowerCamelCase nameconvention
    - standard indentation
    - standard formating
    - cleancode (so far as possible)
    - comment code.
-
-  Version 3.0 december 2024
-   - complete new redesign in OO (where posible)
 ***********************************************************************************************************/
 
-//User librarys
+//User libraries
 #include "maintain-data.h"         // Set the data variables activated by the buttons and analogreads 
 #include "display-handler.h"       // Display class maintain the output to LCD screen  
 #include "rotary-handler.h"        // Handles the Interrupts used by the rotary
