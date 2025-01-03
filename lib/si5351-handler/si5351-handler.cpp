@@ -7,8 +7,9 @@ namespace MySi5251 {
             /*! @brief  Set the inital values for the si5351                                      */
             /**************************************************************************************/
             void Si5251Handler::init() {
-                Si5251Handler::interFrequencyPrevious = 0; 
-                Si5251Handler::calibrationFactor      = 33000;    //  Si5351 calibration factor, adjust to get exatcly 10MHz. Increasing this value will decreases the frequency and vice versa.
+                
+                interFrequencyPrevious = 0; 
+                calibrationFactor      = 33000;    //  Si5351 calibration factor, adjust to get exatcly 10MHz. Increasing this value will decreases the frequency and vice versa.
 
                 si5351.init(SI5351_CRYSTAL_LOAD_8PF, 0, 0);
                 si5351.set_correction(calibrationFactor, SI5351_PLL_INPUT_XO);
@@ -36,10 +37,10 @@ namespace MySi5251 {
             */
             /******************************************************************************/
             void Si5251Handler::checkSi5251Changes(unsigned long freq, long  interFreq){
-                if (Si5251Handler::frequencyPrevious != freq || Si5251Handler::interFrequencyPrevious != interFreq ) {
+                if (frequencyPrevious != freq || interFrequencyPrevious != interFreq ) {
                     setSi5251Frequency(freq,interFreq);
-                    Si5251Handler::frequencyPrevious      = freq;
-                    Si5251Handler::interFrequencyPrevious = interFreq;
+                    frequencyPrevious      = freq;
+                    interFrequencyPrevious = interFreq;
                 }
             }
     

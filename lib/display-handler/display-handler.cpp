@@ -5,12 +5,12 @@ namespace MyDisplay {
             
 
             /***************************************************************************************/
-            /*! @brief  Initial setup op the display                                               */
+            /*! @brief  Initial setup  the display                                                 */
             /***************************************************************************************/
             void Screen::init() {
 
-                Screen::timeNow = 0;          // The current time
-                Screen::period = 100;          // Used for calculation the performance time .
+                timeNow = 0;          // The current time
+                period = 100;         // Used for calculation the performance time .
                 
                 Wire.begin();
                 display.begin(SSD1306_SWITCHCAPVCC, 0x3C);

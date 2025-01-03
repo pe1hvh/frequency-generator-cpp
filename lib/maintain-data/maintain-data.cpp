@@ -4,16 +4,18 @@
 
 namespace MyData {
 
+            /********************************************************** */
+            /*! @brief setting the initals                               */
+            /********************************************************** */
             void Data::init() {
-                 Data::frequency          = 7200000;   // The frequency for setting the correct clock frequency possible values ex:  100000,   800000,  1800000,  3650000,  4985000 etc
-                 Data::interFrequency     = IF;        // The default interFrequency ex: 455 = 455kHz, 10700 = 10.7MHz,  0 = to direct convert receiver or RF generator, + will add and - will subtract IF  offfset.
-                 Data::rxtxSwitch         = false;     // Rx Tx Switch
-                 Data::tuneStepValue      = 4;         // The default value otherwise set by the TuneStepButton
-                 Data::bandSelectorValue  = 7;         // Default 7 otherwise set by the  band selector button. /Enter your initial Band (1-21) at startup, ex: 1 = frequencyGenerator, 2 = 800kHz (MW), 7 = 7.2MHz (40m), 11 = 14.1MHz (20m).
-                 Data::tunePointer        = 0;         // Default set to left otherwise set by rotary
-                 Data::frequencyStep      = 10;               //The frequency step ex: 1, 10, 1000, 5000, 10000 set by tunestepvalue
-               
-                   
+  
+                 frequency          = 7200000;   // The frequency for setting the correct clock frequency possible values ex:  100000,   800000,  1800000,  3650000,  4985000 etc
+                 interFrequency     = IF;        // The default interFrequency ex: 455 = 455kHz, 10700 = 10.7MHz,  0 = to direct convert receiver or RF generator, + will add and - will subtract IF  offfset.
+                 rxtxSwitch         = false;     // Rx Tx Switch
+                 tuneStepValue      = 4;         // The default value otherwise set by the TuneStepButton
+                 bandSelectorValue  = 7;         // Default 7 otherwise set by the  band selector button. /Enter your initial Band (1-21) at startup, ex: 1 = frequencyGenerator, 2 = 800kHz (MW), 7 = 7.2MHz (40m), 11 = 14.1MHz (20m).
+                 tunePointer        = 0;         // Default set to left otherwise set by rotary
+                 frequencyStep      = 10;               //The frequency step ex: 1, 10, 1000, 5000, 10000 set by tunestepvalue
             }
 
   
@@ -22,7 +24,7 @@ namespace MyData {
                 @return frequency */
             /********************************************************** */
             unsigned long Data::getFrequency() {
-                return Data::frequency;
+                return frequency;
             }
 
             /********************************************************** */
@@ -30,7 +32,7 @@ namespace MyData {
                 @return frequencyStep */
             /********************************************************** */            
             unsigned long Data::getFrequencyStep() {
-                return Data::frequencyStep;
+                return frequencyStep;
             }
 
             /********************************************************** */
@@ -38,7 +40,7 @@ namespace MyData {
                 @return interFrequency */
             /********************************************************** */
             int Data::getInterFrequency() {
-                return Data::interFrequency;
+                return interFrequency;
             }
 
             /********************************************************** */
@@ -46,7 +48,7 @@ namespace MyData {
                 @return rxtxSwitch */
             /********************************************************** */
             bool Data::getRxTxSwitch() {
-                return Data::rxtxSwitch;
+                return rxtxSwitch;
             }
 
             /********************************************************** */
@@ -54,7 +56,7 @@ namespace MyData {
                 @return tuneStepValue */
             /********************************************************** */
             uint8_t Data::getTuneStepValue(){
-                return Data::tuneStepValue;
+                return tuneStepValue;
             }
 
             /********************************************************** */
@@ -62,7 +64,7 @@ namespace MyData {
                 @return bandSelectorValue */
             /********************************************************** */
             uint8_t Data::getBandSelector() {
-                return Data::bandSelectorValue;
+                return bandSelectorValue;
             }
 
             /********************************************************** */
@@ -70,7 +72,7 @@ namespace MyData {
                 @return tunePointer */
             /********************************************************** */
             uint8_t Data::getTunePointer() {
-                return Data::tunePointer;
+                return tunePointer;
             }
 
             /********************************************************** */

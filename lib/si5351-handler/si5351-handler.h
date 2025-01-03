@@ -1,20 +1,17 @@
 #ifndef _SI5351_H_
 #define _SI5351_H_
 
-#include <Arduino.h>
 #include <si5351.h>                // A full-featured library for the Si5351 series of clock generator ICs from Silicon Labs  https://github.com/etherkit/Si5351Arduino
 
-inline Si5351 si5351(0x60);               // Initialize Si5351 object with I2C Address 0x60 (Standard IC2 bus adres for Si5251. 
-
-
-    
+inline Si5351 si5351(0x60);        // Initialize Si5351 object with I2C Address 0x60 (Standard IC2 bus adres for Si5251. 
+   
 
 namespace MySi5251 {
    
     class Si5251Handler {
  
         private:
-        
+
             long calibrationFactor         ;    //  Si5351 calibration factor, adjust to get exatcly 10MHz. Increasing this value will decreases the frequency and vice versa.
             unsigned long frequencyPrevious;    // The previous frequency
             long  interFrequencyPrevious   ;    // The previous interFrequency

@@ -2,7 +2,7 @@
 #define _DATA_H_
 
 #include <avr/pgmspace.h>          // needed for to story large array's
-#include <Rotary.h>
+#include <Rotary.h>                // 
 #define IF         455             // Enter your IF frequency, ex: 455 = 455kHz, 10700 = 10.7MHz, 0 = to direct convert receiver or RF generator, + will add and - will subtract IF offfset.
 
 const unsigned long frequencySteps[7]   PROGMEM = {0UL,1UL,10UL,1000UL,5000UL,10000UL,1000000UL};     // the frequencySteps corrersponding by the steps    
@@ -22,23 +22,23 @@ namespace MyData {
 
             // variable used by the getters 
             unsigned long frequency     ;   // The frequency for setting the correct clock frequency possible values ex:  100000,   800000,  1800000,  3650000,  4985000 etc
-            int   interFrequency        ;        // The default interFrequency ex: 455 = 455kHz, 10700 = 10.7MHz,  0 = to direct convert receiver or RF generator, + will add and - will subtract IF  offfset.
-            bool  rxtxSwitch            ;     // Rx Tx Switch
-            uint8_t  tuneStepValue      ;         // The default value otherwise set by the TuneStepButton
-            uint8_t  bandSelectorValue  ;         // Default 7 otherwise set by the  band selector button. /Enter your initial Band (1-21) at startup, ex: 1 = frequencyGenerator, 2 = 800kHz (MW), 7 = 7.2MHz (40m), 11 = 14.1MHz (20m).
-            uint8_t  tunePointer        ;         // Default set to left otherwise set by rotary
-            uint8_t signalMeterRemap ;               // Remapped and bounded value
+            int   interFrequency        ;   // The default interFrequency ex: 455 = 455kHz, 10700 = 10.7MHz,  0 = to direct convert receiver or RF generator, + will add and - will subtract IF  offfset.
+            bool  rxtxSwitch            ;   // Rx Tx Switch
+            uint8_t  tuneStepValue      ;   // The default value otherwise set by the TuneStepButton
+            uint8_t  bandSelectorValue  ;   // Default 7 otherwise set by the  band selector button. /Enter your initial Band (1-21) at startup, ex: 1 = frequencyGenerator, 2 = 800kHz (MW), 7 = 7.2MHz (40m), 11 = 14.1MHz (20m).
+            uint8_t  tunePointer        ;   // Default set to left otherwise set by rotary
+            uint8_t signalMeterRemap    ;   // Remapped and bounded value
             // end variable used by the getters
 
-            unsigned long frequencyStep ;               //The frequency step ex: 1, 10, 1000, 5000, 10000 set by tunestepvalue
-            int adc;                                        //ADC pin number
-            int signalMeter;             // Raw ADC reading
+            unsigned long frequencyStep ;    //The frequency step ex: 1, 10, 1000, 5000, 10000 set by tunestepvalue
+            int adc;                         //ADC pin number
+            int signalMeter;                 // Raw ADC reading
             uint8_t  tuneStepValues[7]  = {0, 2, 3, 4, 5, 6, 1};  //The next tunestepValues set by tuneStepValue
 
         public:
 
             /********************************************************** */
-            /*! @brief the constuctor  */
+            /*! @brief setting the initials  */
             /********************************************************** */
             void init();
 
