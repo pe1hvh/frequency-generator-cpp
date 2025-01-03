@@ -106,27 +106,38 @@ namespace MyData {
             /********************************************************** */
             /*! @brief the public setter for Button TuneStepvhandler    */
             /********************************************************** */
-            void Data::setByButtonTuneStep() {
-                tuneStepValue = tuneStepValues[tuneStepValue];
-                frequencyStep = pgm_read_dword_near(&frequencySteps[tuneStepValue]);  
+            void Data::setByButtonTuneStep(bool tunestep) {
+                if(tunestep==LOW) {
+                    tuneStepValue = tuneStepValues[tuneStepValue];
+                    frequencyStep = pgm_read_dword_near(&frequencySteps[tuneStepValue]);  
+                    delay(300);
+                }
             }   
 
             /********************************************************** */
             /*! @brief the public setter for Button BandSelector        */
             /********************************************************** */
-            void Data::setByButtonBandSelector() {
-                bandSelectorValue++;
-                if (bandSelectorValue > 21) {bandSelectorValue = 1; tuneStepValue = 4; }
-                frequency   = pgm_read_dword_near(&frequencyBanden[bandSelectorValue]);
-                tunePointer = 0;
+            void Data::setByButtonBandSelector(bool band) {
+                if(band == LOW){
+                    bandSelectorValue++;
+                    if (bandSelectorValue > 21) {bandSelectorValue = 1; tuneStepValue = 4; }
+                    frequency   = pgm_read_dword_near(&frequencyBanden[bandSelectorValue]);
+                    tunePointer = 0;
+                    delay(300);
+                }
             }    
 
             /********************************************************** */
             /*! @brief the public setter for Button Rx or TX         */
             /********************************************************** */
-            void Data::setByButtonRxTxSwitch(bool pswitch, long interF) {
-                rxtxSwitch = pswitch;
-                interFrequency= interF;
+            void Data::setByButtonRxTxSwitch(bool rx_tx) {
+                if(rx_tx == LOW) {
+                    rxtxSwitch     = true;
+                    interFrequency = 0;
+                } else { 
+                    rxtxSwitch     = false;
+                    interFrequency = IF;
+                }
             }    
 
             /********************************************************** */

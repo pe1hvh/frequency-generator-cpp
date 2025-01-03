@@ -32,10 +32,7 @@ void initButtonRxTx() {
 /*! @brief if TunestepButton pressed  set tunestepvalue and frequencystep   */
 /************************************************************************** */
 void checkButtonTuneStep() {
-      if (digitalRead(tunestep) == LOW) {
-            MyData::dataManager.setByButtonTuneStep();
-            delay(300);
-      }       
+     MyData::dataManager.setByButtonTuneStep(digitalRead(tunestep));
 }
 
 /************************************************************************** */
@@ -43,28 +40,21 @@ void checkButtonTuneStep() {
            if bandselector start again tuneStepValue is set to default      */
 /************************************************************************** */
 void checkButtonBandSelector() {
-     if (digitalRead(band) == LOW) {
-         MyData::dataManager.setByButtonBandSelector();
-         delay(300);
-      }
+     MyData::dataManager.setByButtonBandSelector(digitalRead(band));
 }
 
 /**************************************************************************** */
 /*! @brief if RxTx button  pressed  set rxtxSwitch  and  interFrequency value */
 /**************************************************************************** */
 void checkButtonRxTx() {
-    if (digitalRead(rx_tx) == LOW) {
-         MyData::dataManager.setByButtonRxTxSwitch(true,0);
-    } else { 
-         MyData::dataManager.setByButtonRxTxSwitch(false,IF);
-    }
+     MyData::dataManager.setByButtonRxTxSwitch(digitalRead(rx_tx)); 
 }
 
 /**************************************************************************** */
 /*! @brief read the analog signal for the signal meter                        */
 /**************************************************************************** */
 void readSignalMeterADC() {
-        MyData::dataManager.setByAnalogRead(analogRead(adc));
+     MyData::dataManager.setByAnalogRead(analogRead(adc));
 }   
 
 #endif

@@ -12,10 +12,12 @@
    - standard formating
    - cleancode (so far as possible)
    - comment code.
+   - split definitions and implementation
+
 ***********************************************************************************************************/
 
 //User libraries
-#include "maintain-data.h"         // Set the data variables activated by the buttons and analogreads 
+#include "maintain-data.h"         // Set the data variables activated by the buttons, rotaryknob and analogreads 
 #include "display-handler.h"       // Display class maintain the output to LCD screen  
 #include "rotary-handler.h"        // Handles the Interrupts used by the rotary
 #include "input-handler.h"         // Handles the Buttons

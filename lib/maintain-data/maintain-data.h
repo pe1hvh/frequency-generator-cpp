@@ -100,17 +100,17 @@ namespace MyData {
             /********************************************************** */
             /*! @brief the public setter for Button TuneStepvhandler    */
             /********************************************************** */
-            void setByButtonTuneStep();
+            void setByButtonTuneStep(bool tunestep);
 
             /********************************************************** */
             /*! @brief the public setter for Button BandSelector        */
             /********************************************************** */
-            void setByButtonBandSelector();
+            void setByButtonBandSelector(bool band);
 
             /********************************************************** */
             /*! @brief the public setter for Button Rx or TX         */
             /********************************************************** */
-            void setByButtonRxTxSwitch(bool pswitch, long interF);
+            void setByButtonRxTxSwitch(bool rx_tx);
 
             /********************************************************** */
             /*! @brief the public setter for analogread  
