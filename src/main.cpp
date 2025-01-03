@@ -35,6 +35,7 @@ void setup() {
   
   MyDisplay::displayManager.init();
   MyDisplay::displayManager.setStartupText(); //If you hang on startup, comment
+  
   MyData::dataManager.init();
 
   initRotary();
