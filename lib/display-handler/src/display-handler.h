@@ -105,7 +105,7 @@ namespace MyDisplay{
                 @return kHz or MHz 
             */
             /***************************************************************************************/
-            char* setFrequencyScreen(int freq);
+            char* setFrequencyScreen(long freq);
            
             /***************************************************************************************/
             /*! @brief  Set the interfrequentye for the display     
@@ -113,7 +113,7 @@ namespace MyDisplay{
                 @return VFO or L O 
             */
             /***************************************************************************************/
-            char* setInterFrequentieScreen(int freq);
+            char* setInterFrequentieScreen(long freq);
 
             /***************************************************************************************/
             /*! @brief  Set on display TX OR RX    
