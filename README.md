@@ -25,6 +25,10 @@
   For writing cleancode, the Sonarlint plug-in is installed in Visual Code. 
   SonarLint is an open-source code analysis tool that serves several important functions to help developers write cleaner, safer, and higher-quality code. 
   There is no need, for using all sonarlint rules but the most important are enabled.
+
+  ArduinoIDE
+  ----------
+  This code is converted to compatiple code for de ArduinoIDE. See : https://github.com/pe1hvh/frequentie-generator
   
 
   
