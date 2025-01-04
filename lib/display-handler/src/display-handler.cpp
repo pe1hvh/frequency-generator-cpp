@@ -2,10 +2,15 @@
 
 namespace MyDisplay {
 
-            
-
             /***************************************************************************************/
-            /*! @brief  Initial setup  the display                                                 */
+            /*! @brief Initialize Adafruit_SSD1306 object type Adafruit_SSD1306
+                        width 128 pixels hight 64 pixels, 
+                        using the Wire object(library) by reference                                */
+            /***************************************************************************************/
+             Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire);
+       
+            /***************************************************************************************/
+            /*! @brief  Initial Screen object                                                      */
             /***************************************************************************************/
             void Screen::init() {
 
@@ -136,9 +141,9 @@ namespace MyDisplay {
             char* Screen::setFrequencyScreen(int freq) {
                 char* returnDisplay =(char*)"  ";
                 if (freq < 1000000) { 
-                returnDisplay = (char*)"kHz";
+                    returnDisplay = (char*)"kHz";
                 } else {
-                returnDisplay = (char*)"MHz";
+                    returnDisplay = (char*)"MHz";
                 }
                 return returnDisplay;
             }

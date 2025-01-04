@@ -3,8 +3,6 @@
 
 #include <si5351.h>                // A full-featured library for the Si5351 series of clock generator ICs from Silicon Labs  https://github.com/etherkit/Si5351Arduino
 
-inline Si5351 si5351(0x60);        // Initialize Si5351 object with I2C Address 0x60 (Standard IC2 bus adres for Si5251. 
-   
 
 namespace MySi5251 {
    
@@ -43,8 +41,6 @@ namespace MySi5251 {
 
  extern Si5251Handler si5251Manager;
 }
-
-
 
 
 #endif

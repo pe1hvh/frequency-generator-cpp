@@ -5,7 +5,6 @@
 #include <Adafruit_GFX.h>          // Adafruit GFX graphics core library, this is the 'core' class that all our other graphics libraries derive from. https://github.com/adafruit/Adafruit-GFX-Library
 #include <Adafruit_SSD1306.h>      // SSD1306 oled driver library for monochrome 128x64 and 128x32 displays https://github.com/adafruit/Adafruit_SSD1306
 
-inline Adafruit_SSD1306 display = Adafruit_SSD1306(128, 64, &Wire); // Initialize Adafruit_SSD1306 object (Type Adafruit_SSD1306) width 128 pixels hight 64 pixels, using the Wire object(library) by reference
 
 const char   display_step_0[] PROGMEM = "     ";
 const char   display_step_1[] PROGMEM = "  1Hz";
@@ -138,13 +137,10 @@ namespace MyDisplay{
             */
             /***************************************************************************************/
             void setFormattedFrequency(unsigned long frequency);
-
-
-    
+   
      };
      extern Screen displayManager;
-   
-   
+
 }
 
 #endif
