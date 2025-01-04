@@ -18,18 +18,13 @@
   ----------
   While using PlatformIO with Visual Code as IDE, I have to re-order the function.
   
-  PlatformIO requires that functions be declared before they are called in the code. This is because PlatformIO uses a more standard C++ compilation process,
-  which adheres strictly to the requirement that functions must be declared before use.
+  PlatformIO requires that functions be declared before they are called in the code. This is because PlatformIO uses a more standard C++ compilation process, which adheres strictly to the requirement that functions must be declared before use.
 
   SonarLint
   ---------
   For writing cleancode, the Sonarlint plug-in is installed in Visual Code. 
   SonarLint is an open-source code analysis tool that serves several important functions to help developers write cleaner, safer, and higher-quality code. 
   There is no need, for using all sonarlint rules but the most important are enabled.
-  
-  Compatible
-  ----------
-  To avoid compatibility issues, the source is saved as an arduino.ino file
   
 
   
