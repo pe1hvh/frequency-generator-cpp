@@ -28,7 +28,7 @@
 
   ArduinoIDE
   ----------
-  This code is converted to compatible code for de ArduinoIDE. See : https://github.com/pe1hvh/frequentie-generator
+  This code is converted to compatible code for de ArduinoIDE and its placed in an other repository. See : https://github.com/pe1hvh/frequency-generator
   
 
   
