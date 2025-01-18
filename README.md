@@ -1,4 +1,4 @@
-10khz to 225mhz vfo rf generator
+10kHz to 225MHz VFO / RF Generator
 ==================================
 
   Original source: https://create.arduino.cc/projecthub/CesarSound/10khz-to-225mhz-vfo-rf-generator-with-si5351-version-2-bfa619?ref=user&ref_id=1465945&offset=1
