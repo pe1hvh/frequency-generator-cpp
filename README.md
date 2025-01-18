@@ -20,11 +20,35 @@
   
   PlatformIO requires that functions be declared before they are called in the code. This is because PlatformIO uses a more standard C++ compilation process, which adheres strictly to the requirement that functions must be declared before use.
 
+  The folder /ile structur used in this project: 
+
+   frequency-generator-cpp
+   | 
+   |--include
+   |  |--input-handler.h
+   |  |--rotary-handler.h
+   |  |
+   |--lib
+   |  |--display-handler
+   |  |  |--display-handler.h
+   |  |  |--display-handler.cpp
+   |  |--maintain-data
+   |  |  |--maintain-data.h
+   |  |  |--maintain-data.cpp
+   |  |--si5351-handler
+   |  |  |--si5351-handler.h
+   |  |  |--si5351-handler.cpp
+   |  |
+   |--src
+   |  |--main.cpp  
+   |- README --> THIS FILE
+
+
   SonarLint
   ---------
   For writing cleancode, the Sonarlint plug-in is installed in Visual Code. 
   SonarLint is an open-source code analysis tool that serves several important functions to help developers write cleaner, safer, and higher-quality code. 
-  There is no need, for using all sonarlint rules but the most important are enabled.
+  
 
   ArduinoIDE
   ----------
