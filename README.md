@@ -21,7 +21,7 @@
   PlatformIO requires that functions be declared before they are called in the code. This is because PlatformIO uses a more standard C++ compilation process, which adheres strictly to the requirement that functions must be declared before use.
 
   The folder /ile structur used in this project: 
-
+  ~~~
    frequency-generator-cpp
    | 
    |--include
@@ -42,7 +42,7 @@
    |--src
    |  |--main.cpp  
    |- README --> THIS FILE
-
+   ~~~
 
   SonarLint
   ---------
